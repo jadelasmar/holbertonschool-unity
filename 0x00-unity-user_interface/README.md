@@ -1,2 +1,2 @@
 # holbertonschool-unity
-This project will go over the basics of Unity’s user interface.
+Basic questions about the unity interface

@@ -66,5 +66,5 @@ Take a look at the Hierarchy window. Having a bunch of GameObjects with the same
 Duplicate 5-more_colors, rename it 6-tags, and open it. Add a tag to all Ball objects called Obstacles.
 
 
-## 7. Textures #advanced
+## 7. Textures
 Duplicate ```6-tags```, rename it ```100-textures```, and open it. Create a new instance of Ball named ```Textured Ball``` and add a texture to it. Your texture asset should be in a folder named ```Textures``` and your new material should be called ```ball-texture```.

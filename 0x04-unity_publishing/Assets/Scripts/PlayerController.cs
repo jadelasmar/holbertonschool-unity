@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         GetComponent<Rigidbody>().AddForce(movement * speed * Time.deltaTime);
+        
 
     }
     /// <summary>
@@ -86,6 +87,11 @@ public class PlayerController : MonoBehaviour
             score = 0;
             SetLoseText();
         }
+        if (Input.GetKey(KeyCode.Escape)) 
+        {
+            SceneManager.LoadScene("menu");
+            Debug.Log("exit");
+        }
     }
 
     void SetScoreText()
@@ -115,6 +121,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator LoadScene(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("maze");
     }
 }

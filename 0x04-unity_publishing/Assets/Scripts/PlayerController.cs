@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed = 800.0f;
+    public float speed = 500.0f;
     private int score = 0;
     public int health = 5;
     public AudioClip winSound;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Text winLoseText;
     public Image winLoseBG;
     public GameObject winLose;
+    public Joystick joystick;
 
 
 
@@ -36,8 +37,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = joystick.Horizontal;
+        float moveVertical = joystick.Vertical;
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         GetComponent<Rigidbody>().AddForce(movement * speed * Time.deltaTime);
         
@@ -87,11 +88,7 @@ public class PlayerController : MonoBehaviour
             score = 0;
             SetLoseText();
         }
-        if (Input.GetKey(KeyCode.Escape)) 
-        {
-            SceneManager.LoadScene("menu");
-            Debug.Log("exit");
-        }
+        
     }
 
     void SetScoreText()

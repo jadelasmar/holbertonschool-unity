@@ -1,55 +1,70 @@
-# 0x03. Unity - UI
+# 0x04. Unity - Publishing
 
 # Learning Objectives
-* What is the Canvas
-* What is screen space vs world space
-* How to use the Rect Tool
-* What are anchors and how to use them
-* How to display and update information in the UI
-* What is a coroutine
-* How to create a menu
-* How to use Unity’s UI Interaction Components
-* What the alpha value of a color is
-* How to set and change material colors with scripts
-* What are common accessibility concepts to consider
+* How to publish a build
+* How to reorder scenes in a build
+* How to build a standalone application for Windows, Mac, and Linux
+* How to edit a project’s Quality Settings
+* How to add an icon to your build
+* What is the profiler and how to use it to check your project’s performance
+* What to consider when developing for different platforms
 
-## 0. Scoreboard
-We’ll be building off the last project to add UI elements (see example).
+## 0. Quality Settings
+Clone your 0x03-unity-ui repo into a new folder called 0x04-unity_publishing inside your holbertonschool-unity repo.
 
-Clone your ```0x02-unity-scripting``` repo into a new repo called ```0x03-unity-ui```. Like the previous project, this project should be inside its own repo, not within a subdirectory.
+In this project, you will be exploring how to publish a game to play on Windows, Mac, or Linux. If there are any changes or improvements you’d like to make to the maze in this repo, feel free! This project will only be checking your build settings and the final standalone game. If you do make changes to your maze, it’s strongly recommended to have a peer play it to make sure it works as intended.
 
-## 1. What does "new high score" mean? Is that bad? Did I break it? 
-Edit the ```PlayerController.cs``` script. Create a new ```public Text scoreText``` variable. In the Inspector, set the value of the ```scoreText``` field to your ```ScoreText``` GameObject.
+Edit the project’s Quality Settings. Your project should have three quality levels:
+Low, Medium & High.
 
-## 2. HP 
-Inside the existing Canvas GameObject, create a new UI Image GameObject and name it ```HealthBG```. Anchor it to the top left of the game window using Anchor Presets.
+## 1. Player Settings
+Edit the Player Settings for PC, Mac, & Linux Standalone. Unless otherwise specified below, leave settings with their default values. Create a new directory in the Assets folder called Images.
 
-## 3. Health inspection 
-Edit the ```PlayerController.cs``` script. Create a new ```public Text healthText``` variable. In the Inspector, set the value of the healthText field to your ```HealthText``` GameObject.
+* Company Name: Your name
+* Product Name: Maze
+* Default Icon: Use this image or make your own (File name must be mazeicon.png and saved in directory Assets/Images/)
 
-## 4. Win, lose, or draw 
-Inside the existing Canvas GameObject, create a new UI Image GameObject and name it ```WinLoseBG```. Anchor it to the center of the game window using Anchor Presets.
+Resolution and Presentation:
 
-## 5. Chicken dinner 
-Edit the ```PlayerController.cs``` script so that when the ```Player``` touches the ```Goal:```
+* Default Is Full Screen: Off
+* Default Screen Width: 1024
+* Default Screen Height: 768
+* Resizable Window: On
 
-## 6. Game over, man, game over
-Edit the ```PlayerController.cs``` script so that when the ```Player```‘s ```health```reaches 0:
+Splash Image:
 
-## 7. Wait a second... 
-The transition from the ```Game Over!``` text and the scene reloading is very sudden and abrupt. Let’s use a coroutine and ```WaitForSeconds()``` to create a delay where once the Player‘s health is 0 and the ```Game Over!``` text is displayed, the scene waits ```3``` seconds to reload.
+* Splash Style: Light on Dark
+* Animation: Dolly
+* Draw Mode: Unity Logo Below
+* Logos: Use this image or make your own (File name must be mazelogo.png and saved in directory Assets/Images/)
+* Logo Duration: 4
 
-## 8. What's on the menu 
-Create a new scene called ```Menu``` in the Project window. Add a new UI Panel GameObject called ```MenuBG```
+## 2. Build Settings 
+Scenes in Build:
 
-## 9. Let's play 
-Create a new C# script ```MainMenu.cs```. Create a new method ```public void PlayMaze()```.
+* menu
+* maze
 
-## 10. We're not retreating, we're advancing! Toward future victory! 
-Inside the ```MainMenu.cs``` script, create a new method ```public void QuitMaze()```.
+Create three builds of the maze in a directory called Builds in the root of your project folder (not inside the Assets folder).
 
-## 11. A narrow variety of options 
-Inside the existing Canvas GameObject, create an empty GameObject called ```OptionsMenu```. Anchor it to the center of the game window with Anchor Presets.
+Windows and Linux builds should be set to x86_64 architecture
+Do not check Development Build
+Build Folder Hierarchy:
 
-## 12. Accessibility 
-Having red traps and a green goal isn’t very accessible design for certain types of colorblindness. Ideally in game design, it would be better to avoid color coding important mechanics or objects entirely. For the sake of this UI project, we’ll add a Colorblind Mode option for our maze.
+* Builds
+  * Linux
+    * Maze_Data
+    * Maze.x86_64
+  * Mac
+    * Maze.app
+  * Windows
+    * Maze_Data
+    * Maze.exe
+    * UnityPlayer.dll
+Make sure to run your build and make sure it works! It should open with the logo splash screen then the menu. Test your build on all three platforms if possible, but at the very least test on your own computer.
+
+Create a .zip of each build:
+
+* Maze_Mac.zip
+* Maze_Linux_x86_64.zip
+* Maze_Windows_x86_64.zip

@@ -88,6 +88,10 @@ public class PlayerController : MonoBehaviour
             score = 0;
             SetLoseText();
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
         
     }
 

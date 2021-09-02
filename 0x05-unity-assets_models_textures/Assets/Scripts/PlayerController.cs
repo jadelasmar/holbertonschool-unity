@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     CharacterController characterController;
-
-    public float jumpSpeed = 8.0f;
+    public float speed = 10.0f;
+    public float jumpSpeed = 10.0f;
     public float gravity = 20.0f;
-    public float speed = 9.0f;
+
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");

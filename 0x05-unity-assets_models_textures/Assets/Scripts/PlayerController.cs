@@ -1,39 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    CharacterController characterController;
-    public float speed = 10.0f;
-    public float jumpSpeed = 10.0f;
-    public float gravity = 20.0f;
+    private CharacterController control;
+    public GameObject mainCamera;
+    private float moveHorizontal;
+    private float moveVertical;
+    private float speed;
+    private float jumpSpeed;
+    private float gravity;
+    private Vector3 movement = Vector3.zero;
 
-
-    private Vector3 moveDirection = Vector3.zero;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        control = GetComponent<CharacterController>();
+        speed = 10f;
+        jumpSpeed = 10f;
+        gravity = 20f;
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        Vector3 relativePos = transform.position - mainCamera.transform.position;
+        relativePos.Normalize();
+        relativePos.y = 0;
 
-        transform.Translate(new Vector3(horizontal, 0, vertical) * (speed * Time.deltaTime));
-
-        if (characterController.isGrounded)
+        if (control.isGrounded)
         {
-
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection *= speed;
-
+            moveHorizontal = Input.GetAxisRaw("Horizontal");
+            moveVertical = Input.GetAxisRaw("Vertical");
+            movement = (moveHorizontal * mainCamera.transform.right) + (moveVertical * relativePos);
+            movement = transform.TransformDirection(movement);
+            movement.Normalize();
+            movement *= speed;
             if (Input.GetButton("Jump"))
-            {
-                moveDirection.y = jumpSpeed;
-            }
+                movement.y = jumpSpeed;
         }
-        moveDirection.y -= gravity * Time.deltaTime;
-        characterController.Move(moveDirection * Time.deltaTime);
+        movement.y -= gravity * Time.deltaTime;
+        control.Move(movement * Time.deltaTime);
+
+        if (transform.position.y < -21)
+        {
+            transform.position = new Vector3(0f, 30f, 0f);
+            movement = Vector3.zero;
+
+        }
     }
 }

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Text winLoseText;
     public Image winLoseBG;
     public GameObject winLose;
+    
     public Joystick joystick;
 
 

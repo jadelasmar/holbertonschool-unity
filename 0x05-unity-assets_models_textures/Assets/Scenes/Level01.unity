@@ -5245,12 +5245,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4002239815115787907, guid: ea0ad55b447b9d34998d56b4e242a711, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4002239815115787907, guid: ea0ad55b447b9d34998d56b4e242a711, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2b1f1894879f14546833b40fb905b4e1, type: 2}
     - target: {fileID: 919132149155446097, guid: ea0ad55b447b9d34998d56b4e242a711, type: 3}
       propertyPath: m_Name
       value: Flag
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991113125823017423, guid: ea0ad55b447b9d34998d56b4e242a711, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea0ad55b447b9d34998d56b4e242a711, type: 3}

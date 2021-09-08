@@ -6053,7 +6053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0834e99410b07e4ab472111ea196d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1580466953}
+  speed: 0
+  jumpSpeed: 0
+  gravity: 0
 --- !u!143 &678248714
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6087,7 +6089,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &678248716
 MonoBehaviour:
   m_ObjectHideFlags: 0

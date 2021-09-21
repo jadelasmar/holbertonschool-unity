@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     /// <param name="level"></param>
     public void LevelSelect(int level)
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene("Level0" + level);
     }
     public void Options()
     {

@@ -11,9 +11,14 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         offset = new Vector3(0f, 1.5f, -7f);
-        if(PlayerPrefs.GetString("isInverted") == "False")
+         if (PlayerPrefs.GetInt("invertedY") == 1)
+        {
             isInverted = true;
-        else isInverted = false;
+        }
+        else
+        {
+            isInverted = false;
+        }
     }
     void LateUpdate()
     {

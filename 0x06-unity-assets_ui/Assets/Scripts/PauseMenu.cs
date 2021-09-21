@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject PauseCanvas;
-    public GameObject Camera;
+    public GameObject pauseCanvas;
     public bool gamePaused = false;
     void Update()
     {
@@ -19,15 +18,15 @@ public class PauseMenu : MonoBehaviour
     }
     public void Pause()
     {
-        PauseCanvas.SetActive(true);
-        Camera.SetActive(false);
-        Time.timeScale = 0f;
-        gamePaused = true;
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0;
+        gamePaused = true;   
+        
     }
     public void Resume()
     {
-        PauseCanvas.SetActive(false);
-        Time.timeScale = 1f;
+        pauseCanvas.SetActive(false);
+        Time.timeScale = 1;
         gamePaused = false;
     }
 }

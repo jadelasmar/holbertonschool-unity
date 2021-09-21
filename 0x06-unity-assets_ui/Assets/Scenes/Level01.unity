@@ -6117,8 +6117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c372751b2bda914189996cb7d93ed99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseCanvas: {fileID: 0}
-  Camera: {fileID: 1580466953}
+  pauseCanvas: {fileID: 957952255}
   gamePaused: 0
 --- !u!1001 &697309569
 PrefabInstance:
@@ -9104,6 +9103,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: 8cbfa08be247abf409f09a70468aa6dc, type: 3}
   m_PrefabInstance: {fileID: 947766208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &957952255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7801263267810053659, guid: f67dc47b102e9364eb3e69f1217ca2c7, type: 3}
+  m_PrefabInstance: {fileID: 7405082080531728491}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &958491993
 GameObject:
@@ -13970,7 +13974,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 9, y: 0, z: 0}
 --- !u!114 &1580466957
 MonoBehaviour:
@@ -18111,7 +18115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3910452072832483124, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3910452072832483124, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18357,6 +18361,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7405082081766040219, guid: f67dc47b102e9364eb3e69f1217ca2c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801263267810053639, guid: f67dc47b102e9364eb3e69f1217ca2c7, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801263267810053659, guid: f67dc47b102e9364eb3e69f1217ca2c7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

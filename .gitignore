@@ -6847,3 +6847,4 @@ crashlytics-build.properties
 0x06-unity-assets_ui/Packages/packages-lock.json
 0x06-unity-assets_ui/ProjectSettings/ProjectSettings.asset
 0x06-unity-assets_ui/ProjectSettings/ProjectVersion.txt
+.vscode/settings.json

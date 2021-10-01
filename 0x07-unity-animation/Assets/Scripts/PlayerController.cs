@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    public Transform playerSpawn;
     public Transform playerCamera;
     public float yBounds = -30f;
     [Range(0, 20)]

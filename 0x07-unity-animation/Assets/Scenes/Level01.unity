@@ -6397,11 +6397,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7190769047876228868, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
   m_PrefabInstance: {fileID: 3550507489302944171}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &678248720 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3910452072832483124, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
-  m_PrefabInstance: {fileID: 3550507489302944171}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &697309569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19240,41 +19235,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
-      propertyPath: gravity
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
-      propertyPath: jumpTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: jumpHeight
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1580466953}
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: playerSpawn
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 274118679}
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1580466956}
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
+      propertyPath: fallThreshold
+      value: 
+      objectReference: {fileID: 548649117}
+    - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: cameraLookDirection
       value: 
-      objectReference: {fileID: 678248720}
+      objectReference: {fileID: 1580466956}
     - target: {fileID: 678248716, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: TimerText
       value: 
       objectReference: {fileID: 507953391}
-    - target: {fileID: 678248716, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 678248721, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: pauseCanvas
       value: 
@@ -19325,11 +19308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3949470769641850906, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432815345005941408, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
-      propertyPath: m_TagString
-      value: Player
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7190769047876228868, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: m_Name

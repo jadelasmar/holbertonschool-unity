@@ -6402,6 +6402,11 @@ CharacterController:
   m_CorrespondingSourceObject: {fileID: 678248714, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
   m_PrefabInstance: {fileID: 3550507489302944171}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &678248721 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3910452072832483124, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
+  m_PrefabInstance: {fileID: 3550507489302944171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &697309569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19240,6 +19245,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1580466956}
+    - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 678248716}
+    - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
+      propertyPath: yBounds
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -19249,7 +19266,7 @@ PrefabInstance:
       objectReference: {fileID: 678248716}
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: jumpHeight
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: mainCamera
@@ -19282,7 +19299,7 @@ PrefabInstance:
     - target: {fileID: 678248713, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: cameraLookDirection
       value: 
-      objectReference: {fileID: 1580466956}
+      objectReference: {fileID: 678248721}
     - target: {fileID: 678248715, guid: e5676b087f935f34c82a45b5d874b358, type: 3}
       propertyPath: m_Mass
       value: 20

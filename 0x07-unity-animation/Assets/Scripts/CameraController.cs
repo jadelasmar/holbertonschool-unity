@@ -10,16 +10,16 @@ public class CameraController : MonoBehaviour
     public bool isInverted;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
+
+        //initial camera position
         offset = new Vector3(0f, 1.5f, -7f);
+
+        //check if invertedY is on/off
         if (PlayerPrefs.GetInt("invertedY") == 1)
-        {
             isInverted = true;
-        }
         else
-        {
             isInverted = false;
-        }
     }
     void LateUpdate()
     {

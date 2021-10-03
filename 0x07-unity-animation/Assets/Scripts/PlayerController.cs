@@ -7,36 +7,31 @@ public class PlayerController : MonoBehaviour
     public float yBounds = -30f;
     public float walkSpeed = 10f;
     public float gravity = 1f;
-    [Range(0, 1)]
+
+    [Range(0, 300)]
     public float rotateSpeed = 150f;
 
     [Range(0, 30)]
     public float jumpHeight = 12f;
     private Vector3 jumpVelocity;
-
     private bool isJumping = false;
-
-
-
-
-
     public Vector3 velocity = new Vector3(0, 0, 0);
-    private bool isRespawning;
-
+    private bool isRespawning = false;
     public bool inputEnabled = true;
+    private Animator animator;
 
 
     void Start()
     {
+
+
         // Assign character controller component.
         controller = gameObject.GetComponent<CharacterController>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
+        
 
 
 
-        isRespawning = true;
-
-        // Set cursor settings
-        Cursor.visible = false;
     }
 
     void Update()
@@ -47,10 +42,11 @@ public class PlayerController : MonoBehaviour
 
         // New movement input is applied to the velocity variable.
         MovePlayer();
-
         // Check if player is out of bounds.
         if (transform.position.y < yBounds)
+        {
             RespawnPlayer();
+        }
     }
 
     private void MovePlayer()
@@ -58,21 +54,9 @@ public class PlayerController : MonoBehaviour
         // Grounded movement
         if (controller.isGrounded)
         {
-            // End respawn state when player has touched ground.
-            if (isRespawning)
-                isRespawning = false;
-
-            // End jump state when player returns to the ground.
-            if (isJumping)
-            {
-                isJumping = false;
-
-
-            }
-
             // Assign default Y velocity for grounded state.
             // This helps avoid issues with ground detection and mesh overlap.
-            velocity.y = -10f;
+
 
             // Get left/right/forward/backward input
             if (inputEnabled)
@@ -82,12 +66,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         else // Airborne movement
-        {
-
-
             // Apply gravity effect to player's Y velocity.
             ApplyGravity();
-        }
 
         GetJump(); // Checks and applies jump input to Y velocity.
 
@@ -96,7 +76,15 @@ public class PlayerController : MonoBehaviour
 
         // Apply movement to character controller, if there's movement to apply.
         if (move.magnitude >= 0.01f)
+        {
             controller.Move(move * Time.deltaTime);
+            if (Input.GetKey("a") || Input.GetKey("d") || Input.GetKey("s") || Input.GetKey("w"))
+            {
+                animator.SetBool("isRunning", true);
+            }
+            else animator.SetBool("isRunning", false);
+        }
+
     }
 
     private void GetJump()
@@ -106,6 +94,8 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = true;
             velocity.y = jumpHeight;
+            animator.SetTrigger("isJumping");
+
 
             // Strip current velocity vector of speed scalar when recording jump velocity.
             // jumpVelocity stores an initial jump trajectory which can be altered combined
@@ -129,7 +119,10 @@ public class PlayerController : MonoBehaviour
 
     private void RespawnPlayer()
     {
+        //Respawn player to initial position
         transform.position = new Vector3(0f, 30f, 0f);
         velocity = Vector3.zero;
+
+        animator.SetBool("isFalling", true);
     }
 }

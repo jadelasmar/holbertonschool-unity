@@ -16,22 +16,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 jumpVelocity;
     private bool isJumping = false;
     public Vector3 velocity = new Vector3(0, 0, 0);
-    private bool isRespawning = false;
     public bool inputEnabled = true;
     private Animator animator;
 
 
     void Start()
     {
-
-
         // Assign character controller component.
         controller = gameObject.GetComponent<CharacterController>();
         animator = transform.GetChild(0).GetComponent<Animator>();
-        
-
-
-
     }
 
     void Update()
@@ -47,6 +40,15 @@ public class PlayerController : MonoBehaviour
         {
             RespawnPlayer();
         }
+
+        //not working
+        /*
+        if (controller.isGrounded)
+            animator.SetBool("isFalling", false);
+        else animator.SetBool("isFalling", true);
+        */
+
+
     }
 
     private void MovePlayer()
@@ -96,7 +98,6 @@ public class PlayerController : MonoBehaviour
             velocity.y = jumpHeight;
             animator.SetTrigger("isJumping");
 
-
             // Strip current velocity vector of speed scalar when recording jump velocity.
             // jumpVelocity stores an initial jump trajectory which can be altered combined
             // with any new X/Z movement controls received while player is still airborne.
@@ -122,7 +123,5 @@ public class PlayerController : MonoBehaviour
         //Respawn player to initial position
         transform.position = new Vector3(0f, 30f, 0f);
         velocity = Vector3.zero;
-
-        animator.SetBool("isFalling", true);
     }
 }

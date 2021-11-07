@@ -1,13 +1,13 @@
-﻿using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         Cursor.visible = true;
     }
-    
+
     public void LevelSelect(int level)
     {
         SceneManager.LoadScene(level);

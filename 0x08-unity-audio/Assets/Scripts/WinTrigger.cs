@@ -1,19 +1,19 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class WinTrigger : MonoBehaviour
 {
     public Text timerText;
-    private Timer timer;
     public GameObject winCanvas;
+    private Timer timer;
 
 
-    void Start()
+    private void Start()
     {
         timer = GameObject.FindWithTag("Player").GetComponent<Timer>();
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {

@@ -4,16 +4,15 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
     public bool inputEnabled = true;
-    public bool isInverted = false;
+    public bool isInverted;
 
-    [Range(1,10)]
-    public float sensitivity = 5.0f;
+    [Range(1, 10)] public float sensitivity = 5.0f;
+
+    private Vector3 cameraOffset;
     private float mouseX;
     private float mouseY;
-    
-    private Vector3 cameraOffset;
 
-    void Start()
+    private void Start()
     {
         // Take camera offset based on initial position of player and camera
         cameraOffset = player.position - transform.position;
@@ -22,13 +21,13 @@ public class CameraController : MonoBehaviour
         isInverted = PlayerPrefs.GetInt(PlayerPrefKeys.invertY) == 1 ? true : false;
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (inputEnabled)
             GetMouseInput();
     }
 
-    void GetMouseInput()
+    private void GetMouseInput()
     {
         if (Input.GetButton("ClickToRotate"))
         {
@@ -37,10 +36,10 @@ public class CameraController : MonoBehaviour
         }
 
         // Get new rotation based on mouse input.
-        Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0f);
+        var rotation = Quaternion.Euler(mouseY, mouseX, 0f);
 
         // Position camera based on rotation, offset and current player position.
-        transform.position = player.transform.position - (rotation * cameraOffset);
+        transform.position = player.transform.position - rotation * cameraOffset;
 
         // Rotate camera to always look at player
         transform.LookAt(player.position);

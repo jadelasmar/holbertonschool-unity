@@ -10,9 +10,9 @@ public class WinMenu : MonoBehaviour
 
     public void Next()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        int nextScene = currentScene != 3 ? currentScene + 1 : 0;
-        
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
+        var nextScene = currentScene != 3 ? currentScene + 1 : 0;
+
         SceneManager.LoadScene(nextScene);
     }
 }

@@ -4,12 +4,12 @@ public class TimerTrigger : MonoBehaviour
 {
     private Timer timer;
 
-    void Start()
+    private void Start()
     {
         timer = GameObject.FindWithTag("Player").GetComponent<Timer>();
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
             EnableTimer();

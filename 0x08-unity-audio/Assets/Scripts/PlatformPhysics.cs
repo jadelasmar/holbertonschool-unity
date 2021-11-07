@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlatformPhysics : MonoBehaviour
 {
+    [Range(0, 1)] private float bobbingSpeed = 0.5f;
+
     private float initialY;
-    [Range(0,1)]
-    private float bobbingSpeed = 0.5f;
     private float startOffset;
 
-    void Start()
+    private void Start()
     {
         // Take initial Y position of platform
         initialY = transform.position.y;
@@ -21,15 +19,15 @@ public class PlatformPhysics : MonoBehaviour
         bobbingSpeed += startOffset * 0.5f;
     }
 
-    void Update()
+    private void Update()
     {
         // Generate a Y position by adding oscillating sine value to initial Y position;
-        float newY = initialY + Mathf.Sin(Time.time + startOffset) * bobbingSpeed;
-        
+        var newY = initialY + Mathf.Sin(Time.time + startOffset) * bobbingSpeed;
+
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
             ApplyPlayerCollision();
@@ -37,6 +35,5 @@ public class PlatformPhysics : MonoBehaviour
 
     private void ApplyPlayerCollision()
     {
-
     }
 }

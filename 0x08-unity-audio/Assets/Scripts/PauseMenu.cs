@@ -1,23 +1,23 @@
-﻿using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    private bool isPaused = false;
-    private Timer timer;
-    private PlayerController playerController;
-    private CameraController cameraController;
     public GameObject menu;
     public GameObject winCanvas;
+    private CameraController cameraController;
+    private bool isPaused;
+    private PlayerController playerController;
+    private Timer timer;
 
-    void Start()
+    private void Start()
     {
         timer = GameObject.FindWithTag("Player").GetComponent<Timer>();
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         cameraController = GameObject.FindWithTag("MainCamera").GetComponent<CameraController>();
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !winCanvas.activeSelf)
         {

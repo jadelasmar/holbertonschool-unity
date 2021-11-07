@@ -1,24 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CutsceneController : MonoBehaviour
 {
-    private Animator animator;
     public GameObject mainCamera;
     public GameObject timerCanvas;
     public GameObject menuController;
-    private PlayerController playerController;
     public string animationName;
-    public bool skipAnimation = false;
+    public bool skipAnimation;
+    private Animator animator;
+    private PlayerController playerController;
 
-    void Start()
+    private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
-    void Update()
+    private void Update()
     {
         if (skipAnimation || !animator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
         {

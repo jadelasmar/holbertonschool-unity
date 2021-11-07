@@ -2,44 +2,45 @@
 
 public class PlayerController : MonoBehaviour
 {
- 
     public Transform playerSpawn;
     public Transform cameraLookDirection;
-    private CharacterController controller;
-    private Animator animator;
 
     [Tooltip("This variable allows the player input to be discontinued while pause menu is active.")]
     public bool inputEnabled = true;
+
     public Vector3 velocity = new Vector3(0, 0, 0);
-    private Timer playerTimer;
-    public bool isRespawning = false;
+    public bool isRespawning;
     public float yBounds = -40f;
     public Transform fallThreshold;
 
     public float walkSpeed = 10f;
     public float rotateSpeed = 250f;
-    [Range(0,20)]
-    public float jumpHeight = 12f;
-    private Vector3 jumpVelocity;
 
-    [Range(0,4)]
-    public float heldJumpAdditive = 3f;
-    public float jumpTimer = 0f;
-    private bool isJumping = false;
-    private bool isRunning = false; // isRunning only serves to inform the animator.
+    [Range(0, 20)] public float jumpHeight = 12f;
+
+    [Range(0, 4)] public float heldJumpAdditive = 3f;
+
+    public float jumpTimer;
+    public bool isRunning; // isRunning only serves to inform the animator.
 
 
-    [Tooltip("Sets a threshold based on player's Y velocity to limit how long a held jump will add to current jump velocity.")]
-    [Range(-1,5)]
+    [Tooltip(
+        "Sets a threshold based on player's Y velocity to limit how long a held jump will add to current jump velocity.")]
+    [Range(-1, 5)]
     public float heldJumpThreshold = 0.25f;
 
-    [Tooltip("Dampens airborne movement (0 = max penalty; 1 = no penalty).")]
-    [Range(0,1)]
+    [Tooltip("Dampens airborne movement (0 = max penalty; 1 = no penalty).")] [Range(0, 1)]
     public float airborneDampener = 0.5f;
+
     public float gravity = 1f;
+    private Animator animator;
+    private CharacterController controller;
+    private bool isJumping;
+    private Vector3 jumpVelocity;
+    private Timer playerTimer;
 
 
-    void Start()
+    private void Start()
     {
         // Assign references to player components.
         controller = GetComponent<CharacterController>();
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void Update()
+    private void Update()
     {
         // Send info to animation controller.
         if (inputEnabled)
@@ -64,8 +65,8 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isJumping", false);
         }
 
-        bool isFalling = (transform.position.y < fallThreshold.position.y);
-        animator.SetBool("isFalling", (isFalling || isRespawning));
+        var isFalling = transform.position.y < fallThreshold.position.y;
+        animator.SetBool("isFalling", isFalling || isRespawning);
 
 
         // New movement input is applied to the velocity variable.
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < yBounds)
             RespawnPlayer();
     }
-    
+
     private void MovePlayer()
     {
         // Grounded movement
@@ -103,23 +104,27 @@ public class PlayerController : MonoBehaviour
             {
                 // Rotate character to face direction of movement (there has to be a cleaner way of doing this...).
                 if (Input.GetKey(KeyCode.W))
-                    transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(cameraLookDirection.forward).eulerAngles.y, 0f);
+                    transform.rotation = Quaternion.Euler(0f,
+                        Quaternion.LookRotation(cameraLookDirection.forward).eulerAngles.y, 0f);
                 if (Input.GetKey(KeyCode.S))
-                    transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(-cameraLookDirection.forward).eulerAngles.y, 0f);
+                    transform.rotation = Quaternion.Euler(0f,
+                        Quaternion.LookRotation(-cameraLookDirection.forward).eulerAngles.y, 0f);
                 if (Input.GetKey(KeyCode.D))
-                    transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(cameraLookDirection.right).eulerAngles.y, 0f);
+                    transform.rotation = Quaternion.Euler(0f,
+                        Quaternion.LookRotation(cameraLookDirection.right).eulerAngles.y, 0f);
                 if (Input.GetKey(KeyCode.A))
-                    transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(-cameraLookDirection.right).eulerAngles.y, 0f);
+                    transform.rotation = Quaternion.Euler(0f,
+                        Quaternion.LookRotation(-cameraLookDirection.right).eulerAngles.y, 0f);
 
                 // If any input is received, remove sign.
-                float vertical = Mathf.Abs(Input.GetAxis("Vertical"));
-                float horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
+                var vertical = Mathf.Abs(Input.GetAxis("Vertical"));
+                var horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
 
                 // Take greatest input signal and apply to velocity.
-                float forward = vertical > horizontal ? vertical : horizontal;
+                var forward = vertical > horizontal ? vertical : horizontal;
                 velocity.z = forward * walkSpeed;
 
-                isRunning = (velocity.z != 0);
+                isRunning = velocity.z != 0;
             }
         }
         else // Airborne movement
@@ -127,15 +132,14 @@ public class PlayerController : MonoBehaviour
             if (!isRespawning && inputEnabled)
             {
                 if (Input.GetKey(KeyCode.W))
-                {
-                    transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(cameraLookDirection.forward).eulerAngles.y, 0f);
-                }
+                    transform.rotation = Quaternion.Euler(0f,
+                        Quaternion.LookRotation(cameraLookDirection.forward).eulerAngles.y, 0f);
 
                 // This dampens the influence of movement controls on the player while airborne.
                 // 1. Add current vector to new dampened input vector.
                 // 2. Re-apply speed scalar. 
                 // velocity.x = ((jumpVelocity.x) + Input.GetAxis("Horizontal")  * airborneDampener) * walkSpeed;
-                velocity.z = ((jumpVelocity.z) + Input.GetAxis("Vertical") * airborneDampener) * walkSpeed;
+                velocity.z = (jumpVelocity.z + Input.GetAxis("Vertical") * airborneDampener) * walkSpeed;
             }
 
             // Apply gravity effect to player's Y velocity.
@@ -145,7 +149,7 @@ public class PlayerController : MonoBehaviour
         GetJump(); // Checks and applies jump input to Y velocity.
 
         // Convert local space movement to world space vector.
-        Vector3 move = transform.TransformDirection(velocity);
+        var move = transform.TransformDirection(velocity);
 
         // Apply movement to character controller, if there's movement to apply.
         if (move.magnitude >= 0.01f)
@@ -165,7 +169,7 @@ public class PlayerController : MonoBehaviour
             // with any new X/Z movement controls received while player is still airborne.
             jumpVelocity = new Vector3(velocity.x / walkSpeed, velocity.y, velocity.z / walkSpeed);
         }
-        
+
         // Dynamically add to jump velocity the longer jump button is held.
         // Additional jump velocity will added as long as overall Y velocity
         // remains greater than given threshold (i.e. at or around jump's peak).
@@ -177,7 +181,7 @@ public class PlayerController : MonoBehaviour
             // Increase jump velocity dynamically over time.
             // Jump additive is divided by the duration of the jump button press.
             // This produces an inverse correlation between jump time and jump additive.
-            velocity.y += (heldJumpAdditive / jumpTimer) * 0.035f;
+            velocity.y += heldJumpAdditive / jumpTimer * 0.035f;
         }
     }
 
@@ -196,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
     private void RespawnPlayer()
     {
-        float fallSpeed = velocity.y;
+        var fallSpeed = velocity.y;
 
         // Reset velocity x/z, maintain speed of fall.
         velocity = jumpVelocity = new Vector3(0f, fallSpeed, 0f);

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
-    Toggle invertYToggle;
+    private Toggle invertYToggle;
 
-    void Start()
-    {   
+    private void Start()
+    {
         // Initialize any unset PlayerPref settings.
         InitializeSettings();
 
@@ -21,18 +21,18 @@ public class OptionsMenu : MonoBehaviour
         // Show cursor.
         Cursor.visible = true;
     }
-    
+
     public void Back()
     {
         // For dynamic back maybe...
-        int previousScene = PlayerPrefs.GetInt(PlayerPrefKeys.previousScene);
+        var previousScene = PlayerPrefs.GetInt(PlayerPrefKeys.previousScene);
         SceneManager.LoadScene(previousScene);
     }
 
     public void Apply()
     {
         // Update PlayerPrefs with current settings.
-        PlayerPrefs.SetInt(PlayerPrefKeys.invertY, (invertYToggle.isOn ? 1 : 0));
+        PlayerPrefs.SetInt(PlayerPrefKeys.invertY, invertYToggle.isOn ? 1 : 0);
     }
 
     private void InitializeSettings()

@@ -6,6 +6,7 @@ public class AudioScript : MonoBehaviour
     public PlayerController playerController;
     public AudioSource audioSource;
     public AudioClip footGrass;
+    public AudioClip grassLanding;
 
     public AudioMixer audioMixer;
 
@@ -31,6 +32,16 @@ public class AudioScript : MonoBehaviour
         else
         {
             audioSource.loop = false;
+        }
+
+        if (playerController.madeImpact)
+        {
+            
+            if (audioSource.isPlaying) return;
+            audioSource.clip = grassLanding;
+            audioSource.loop = false;
+            audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Landing")[0];
+            audioSource.Play();
         }
     }
 }

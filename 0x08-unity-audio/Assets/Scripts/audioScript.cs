@@ -3,8 +3,8 @@ using UnityEngine.Audio;
 
 public class AudioScript : MonoBehaviour
 {
-    public PlayerController playerController;
-    public AudioSource audioSource;
+    private PlayerController playerController;
+    private AudioSource audioSource;
     public AudioClip footGrass;
     public AudioClip grassLanding;
 

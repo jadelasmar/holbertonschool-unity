@@ -9,12 +9,16 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused;
     private PlayerController playerController;
     private Timer timer;
+    public MusicScript musicScript;
+
 
     private void Start()
     {
         timer = GameObject.FindWithTag("Player").GetComponent<Timer>();
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         cameraController = GameObject.FindWithTag("MainCamera").GetComponent<CameraController>();
+        musicScript = GameObject.Find("BGM").GetComponent<MusicScript>();
+
     }
 
     private void Update()
@@ -41,11 +45,12 @@ public class PauseMenu : MonoBehaviour
 
         // Set menu canvas to appear.
         menu.SetActive(true);
-
+        
         // Reveal cursor.
         Cursor.visible = true;
 
         isPaused = true;
+        musicScript.pauseSnap();
     }
 
     public void Resume()
@@ -65,6 +70,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 
         isPaused = false;
+        musicScript.resumeSnap();
     }
 
     public void Restart()

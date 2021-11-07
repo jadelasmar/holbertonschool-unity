@@ -17,12 +17,12 @@ public class WinTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             timer.Win();
             timerText.enabled = false;
             winCanvas.SetActive(true);
-            musicScript.stopBGM();
+            musicScript.StopBGM();
         }
     }
 }

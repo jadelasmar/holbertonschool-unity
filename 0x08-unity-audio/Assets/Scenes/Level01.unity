@@ -532,7 +532,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3973206145916764832, guid: 11a193bbaeb78864ca0b9f4f26ff1896,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6d00ed8e2fa694c46b43e6fc7150f7a0, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -647,6 +647,11 @@ MonoBehaviour:
   bgm: {fileID: 8300000, guid: 6d00ed8e2fa694c46b43e6fc7150f7a0, type: 3}
   audioSource: {fileID: 0}
   winBgm: {fileID: 8300000, guid: b06e83b578f9229458ef926740d72974, type: 3}
+  pauseSnapshot: {fileID: -3240667712608334191, guid: 11a193bbaeb78864ca0b9f4f26ff1896,
+    type: 2}
+  resumeSnapshot: {fileID: 5383110507095332968, guid: 11a193bbaeb78864ca0b9f4f26ff1896,
+    type: 2}
+  defaultSnapshot: {fileID: 24500006, guid: 11a193bbaeb78864ca0b9f4f26ff1896, type: 2}
 --- !u!114 &1150366490 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1150366490, guid: f141757fb41ae487690e31a56c0737de,
@@ -1579,6 +1584,11 @@ PrefabInstance:
       propertyPath: winCanvas
       value: 
       objectReference: {fileID: 1769408183}
+    - target: {fileID: 2043675975528312131, guid: f7bef66ba4d7740f090b7b688015c9b3,
+        type: 3}
+      propertyPath: musicScript
+      value: 
+      objectReference: {fileID: 1091488554}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7bef66ba4d7740f090b7b688015c9b3, type: 3}
 --- !u!1001 &5765778610586099329

@@ -9,6 +9,9 @@ public class MusicScript : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip winBgm;
+    public AudioMixerSnapshot pauseSnapshot;
+    public AudioMixerSnapshot resumeSnapshot;
+    public AudioMixerSnapshot defaultSnapshot;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +22,7 @@ public class MusicScript : MonoBehaviour
         audioSource.Play();
     }
 
-    public void stopBGM()
+    public void StopBGM()
     {
         audioSource.Stop();
         audioSource.clip = winBgm;
@@ -27,9 +30,13 @@ public class MusicScript : MonoBehaviour
         audioSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void pauseSnap()
     {
-        
+        pauseSnapshot.TransitionTo(0.2f);
+    }
+
+    public void resumeSnap()
+    {
+        resumeSnapshot.TransitionTo(0.2f);
     }
 }

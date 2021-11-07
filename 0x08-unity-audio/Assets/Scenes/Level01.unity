@@ -506,6 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgm: {fileID: 8300000, guid: 6d00ed8e2fa694c46b43e6fc7150f7a0, type: 3}
   audioSource: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 11a193bbaeb78864ca0b9f4f26ff1896, type: 2}
 --- !u!114 &1150366490 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1150366490, guid: f141757fb41ae487690e31a56c0737de,

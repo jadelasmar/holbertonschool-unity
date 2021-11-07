@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class WinTrigger : MonoBehaviour
@@ -13,6 +12,7 @@ public class WinTrigger : MonoBehaviour
     private void Start()
     {
         timer = GameObject.FindWithTag("Player").GetComponent<Timer>();
+        musicScript = GameObject.Find("BGM").GetComponent<MusicScript>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,8 +22,7 @@ public class WinTrigger : MonoBehaviour
             timer.Win();
             timerText.enabled = false;
             winCanvas.SetActive(true);
-            musicScript.audioSource.Stop();
-
+            musicScript.stopBGM();
         }
     }
 }

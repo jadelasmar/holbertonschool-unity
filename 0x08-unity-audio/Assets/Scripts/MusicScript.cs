@@ -18,6 +18,11 @@ public class MusicScript : MonoBehaviour
         audioSource.Play();
     }
 
+    public void stopBGM()
+    {
+        audioSource.Stop();
+    }
+
     // Update is called once per frame
     void Update()
     {

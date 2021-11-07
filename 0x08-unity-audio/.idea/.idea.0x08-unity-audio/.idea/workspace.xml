@@ -4,46 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb0196d0-3e3c-4d86-9589-77057b3c14bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.0x08-unity-audio/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.0x08-unity-audio/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.0x08-unity-audio/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.0x08-unity-audio/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/BrittleRille.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/BrittleRille.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/CheeryMonday.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/CheeryMonday.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/PorchSwingDays.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/PorchSwingDays.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/VictoryPiano.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/VictoryPiano.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/Wallpaper.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/BGM/Wallpaper.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_landing_grass.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_landing_grass.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_landing_rock.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_landing_rock.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_running_grass.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_running_grass.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_running_rock.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/Player/footsteps_running_rock.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/UI/button-click.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/UI/button-click.ogg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/UI/button-rollover.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/UI/button-rollover.ogg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/birds.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/birds.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/crickets.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX/crickets.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/SceneTemplateSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
-    </list>
+    <list default="true" id="bb0196d0-3e3c-4d86-9589-77057b3c14bb" name="Changes" comment="duplicate of 0x07" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +12,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e33d7a13-a990-4338-ad3c-c43d80bb474c" />
+        <option name="url" value="https://github.com/jadelasmar/holbertonschool-unity.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectId" id="20aHGxT94iCiF60V8reFLKFixGN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -70,7 +39,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="preferences.environmentSetup" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -113,8 +82,16 @@
       <updated>1636275728972</updated>
       <workItem from="1636275746248" duration="139000" />
       <workItem from="1636286867210" duration="621000" />
-      <workItem from="1636287525286" duration="2178000" />
+      <workItem from="1636287525286" duration="2491000" />
     </task>
+    <task id="LOCAL-00001" summary="duplicate of 0x07">
+      <created>1636289867213</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636289867213</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,5 +115,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="duplicate of 0x07" />
+    <option name="LAST_COMMIT_MESSAGE" value="duplicate of 0x07" />
   </component>
 </project>

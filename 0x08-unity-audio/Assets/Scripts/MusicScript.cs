@@ -8,7 +8,7 @@ public class MusicScript : MonoBehaviour
     public AudioClip bgm;
 
     public AudioSource audioSource;
-    public AudioMixer audioMixer;
+    public AudioClip winBgm;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,9 @@ public class MusicScript : MonoBehaviour
     public void stopBGM()
     {
         audioSource.Stop();
+        audioSource.clip = winBgm;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     // Update is called once per frame

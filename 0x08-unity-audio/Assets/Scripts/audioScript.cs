@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class audioScript : MonoBehaviour
+public class AudioScript : MonoBehaviour
 {
     public PlayerController playerController;
     public AudioSource audioSource;
@@ -13,6 +13,7 @@ public class audioScript : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,13 +22,11 @@ public class audioScript : MonoBehaviour
     {
         if (playerController.isRunning)
         {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.clip = footGrass;
-                audioSource.loop = true;
-                audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Running")[0];
-                audioSource.Play();
-            }
+            if (audioSource.isPlaying) return;
+            audioSource.clip = footGrass;
+            audioSource.loop = true;
+            audioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Running")[0];
+            audioSource.Play();
         }
         else
         {

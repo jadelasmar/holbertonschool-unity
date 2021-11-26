@@ -5,6 +5,7 @@ Confidential and Proprietary - Protected under copyright and other laws.
 Vuforia is a trademark of PTC Inc., registered in the United States and other
 countries.
 =========================================================================*/
+
 using System.Collections;
 using UnityEngine;
 using Vuforia;
@@ -19,9 +20,9 @@ public class VirtualButtonEventHandler : MonoBehaviour
     public Material VirtualButtonDefault;
     public Material VirtualButtonPressed;
     public float ButtonReleaseTimeDelay;
-  
+
     VirtualButtonBehaviour[] mVirtualButtonBehaviours;
-   
+
     void Awake()
     {
         // Register with the virtual buttons ObserverBehaviour
@@ -45,16 +46,26 @@ public class VirtualButtonEventHandler : MonoBehaviour
             mVirtualButtonBehaviours[i].UnregisterOnButtonReleased(OnButtonReleased);
         }
     }
-    
+
     /// <summary>
     /// Called when the virtual button has just been pressed:
     /// </summary>
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
-        Debug.Log("OnButtonPressed: " + vb.VirtualButtonName);
         SetVirtualButtonMaterial(VirtualButtonPressed);
         StopAllCoroutines();
         BroadcastMessage("HandleVirtualButtonPressed", SendMessageOptions.DontRequireReceiver);
+        
+        if (vb.name == "GithubScan")
+            Application.OpenURL("https://github.com/jadelasmar");
+        else if (vb.name == "GmailScan")
+            Application.OpenURL("mailto:el.asmar.jad.94@gmail.com");
+        else if (vb.name == "NumberScan")
+            Application.OpenURL("tel://[+96176463616]");
+        else if (vb.name == "LinkedInScan")
+            Application.OpenURL("https://linkedin.com/in/jad-elasmar-16b075202/");
+        else if (vb.name == "InstaScan")
+            Application.OpenURL("https://instagram.com/jad.elasmar/");
     }
 
     /// <summary>
@@ -66,7 +77,7 @@ public class VirtualButtonEventHandler : MonoBehaviour
         SetVirtualButtonMaterial(VirtualButtonDefault);
         StartCoroutine(DelayOnButtonReleasedEvent(ButtonReleaseTimeDelay));
     }
-    
+
     void SetVirtualButtonMaterial(Material material)
     {
         // Set the Virtual Button material

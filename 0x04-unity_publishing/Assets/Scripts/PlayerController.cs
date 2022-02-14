@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float moveHorizontal = joystick.Horizontal;
-        float moveVertical = joystick.Vertical;
+        float moveVertical = 0.5f;
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         GetComponent<Rigidbody>().AddForce(movement * speed * Time.deltaTime);
         
